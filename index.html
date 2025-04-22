@@ -3,27 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Your Name — Portfolio</title>
+  <title>Tarlan — Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <script>
+  const PASSWORD_HASH = 
+    'fb5055543761b18721a14f3beca0de2dbd108b12218798c1ee11a7c5c42cbd7c';
+
+  async function requirePassword() {
+    const input = prompt("Enter resume password:");
+    if (!input) return;
+
+    // hash their input
+    const buf = await crypto.subtle.digest(
+      'SHA-256',
+      new TextEncoder().encode(input)
+    );
+    // convert to hex
+    const hashArray = Array.from(new Uint8Array(buf));
+    const hashHex = hashArray
+      .map(b => b.toString(16).padStart(2, '0'))
+      .join('');
+
+    if (hashHex === PASSWORD_HASH) {
+      window.location.href = '/resume2025.pdf';
+    } else {
+      alert("Incorrect password");
+    }
+  }
+  </script>
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Your Name</h1>
-      <p>Final‑year AI student turning complex data into real‑world solutions.</p>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo"><strong>Your Name</strong></div>
+      <nav>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#contacts">Contacts</a></li>
+          <li><button onclick="requirePassword()">Resume</button></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <nav class="main-nav">
-    <ul>
-      <li><a href="computer-vision.html">Computer Vision</a></li>
-      <li><a href="machine-learning.html">Machine Learning</a></li>
-      <li><a href="gui-design.html">GUI Design</a></li>
-    </ul>
-  </nav>
+  <!-- HERO / INTRO -->
+  <section id="about" class="hero">
+    <div class="hero-content">
+      <h1><strong>TARLAN KAMELI</strong></h1>
+      <p>
+        Hi,<br>
+        I’m a final-year Artificial Intelligence student at the University of Technology Sydney,  
+        with a Diploma of IT from Macquarie University College.  
+        I bring a blend of technical expertise in AI and data analytics, alongside strong communication  
+        and administrative skills developed through hands-on customer service experience.  
+        As an international student and a woman in Engineering and IT, I’m driven to make a positive impact,  
+        not just through innovative solutions, but by fostering diversity, inclusion, and meaningful change  
+        within the tech community. I'm excited to begin my career in the AI industry, creating innovative  
+        solutions and growing within a collaborative, forward-thinking environment.
+      </p>
+      <div class="btn-group">
+        <a href="#projects" class="btn">Projects</a>
+        <a href="#contacts" class="btn">Contacts</a>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>© 2025 Your Name</p>
+  <!-- PROJECTS (placeholder) -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <!-- links or thumbnails go here -->
+  </section>
+
+  <!-- CONTACTS (placeholder) -->
+  <section id="contacts" class="section">
+    <h2>Contacts</h2>
+    <!-- contact form or details -->
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <a href="mailto:kameli.tarlan@gmail.com">Gmail</a>
+      <a href="https://linkedin.com/in/tarlan-kameli" target="_blank">LinkedIn</a>
+    </div>
   </footer>
+
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Your Name — Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Your Name</h1>
+      <p>Final‑year AI student turning complex data into real‑world solutions.</p>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="computer-vision.html">Computer Vision</a></li>
+      <li><a href="machine-learning.html">Machine Learning</a></li>
+      <li><a href="gui-design.html">GUI Design</a></li>
+    </ul>
+  </nav>
+
+  <footer>
+    <p>© 2025 Your Name</p>
+  </footer>
+</body>
+</html>

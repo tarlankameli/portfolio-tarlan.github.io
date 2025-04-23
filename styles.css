@@ -1,25 +1,28 @@
 :root {
-  --bg-page:     #f7f7f7;
-  --bg-header:   #ffffff;
-  --bg-hero:     #e2e2e2;
-  --text-main:   #222222;
-  --btn-bg:      #dddddd;
-  --btn-hover:   #cccccc;
+  --c1: #565264;
+  --c2: #706677;
+  --c3: #a6808c;
+  --c4: #ccb7ae;
+  --c5: #d6cfcb;
 }
 
 * {
-  margin: 0; padding: 0; box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 body {
   font-family: Arial, sans-serif;
-  background: var(--bg-page);
-  color: var(--text-main);
+  background: var(--c5);
+  color: var(--c1);
   line-height: 1.5;
 }
 
 /* HEADER */
-.site-header {
-  background: var(--bg-header);
+header {
+  background: var(--c4);
+  padding: 1rem 0;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 .header-inner {
@@ -28,88 +31,108 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0 1rem;
 }
-.header-inner .logo strong {
+.logo strong {
   font-size: 1.5rem;
+  color: var(--c1);
 }
 nav ul {
   list-style: none;
-  display: flex;
-  gap: 1rem;
 }
-nav a, nav button {
-  text-decoration: none;
-  background: var(--btn-bg);
+nav li {
+  display: inline;
+}
+nav li:not(:last-child)::after {
+  content: " | ";
+  color: var(--c2);
+}
+nav a,
+nav button {
+  background: none;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  color: var(--text-main);
+  color: var(--c1);
+  font-size: 1rem;
   cursor: pointer;
-  font-weight: 500;
+  text-decoration: none;
+  padding: 0 0.5rem;
 }
-nav a:hover, nav button:hover {
-  background: var(--btn-hover);
+nav a:hover,
+nav button:hover {
+  color: var(--c2);
 }
 
-/* HERO SECTION */
-.hero {
-  background: var(--bg-hero);
-  padding: 4rem 1rem;
-  text-align: center;
-}
+/* HERO / COLUMN LAYOUT */
 .hero-content {
-  max-width: 700px;
-  margin: 0 auto;
+  display: flex;
+  max-width: 1000px;
+  margin: 4rem auto;
+  gap: 2rem;
 }
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-.hero p {
-  margin-bottom: 2rem;
-  white-space: pre-wrap; /* preserves line breaks in the <p> */
-}
-.btn-group {
+.column-left {
+  flex: 0 0 33.333%;
   display: flex;
   justify-content: center;
-  gap: 1rem;
 }
-.btn {
-  background: var(--btn-bg);
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  color: var(--text-main);
-  font-weight: 500;
+.column-left img {
+  width: 100%;
+  border-radius: 50%;
+  border: 4px solid var(--c3);
+  object-fit: cover;
 }
-.btn:hover {
-  background: var(--btn-hover);
+.column-right {
+  flex: 1;
+}
+.column-right h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.column-right p {
+  margin-bottom: 2rem;
+  text-align: left;
 }
 
-/* GENERIC SECTION STYLING */
-.section {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 0 1rem;
+/* BUTTONS */
+.btn-group {
+  display: flex;
+  gap: 1rem;
 }
-.section h2 {
-  margin-bottom: 1rem;
-  font-size: 1.75rem;
+.btn,
+.btn-group button {
+  background: var(--c3);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  min-width: 140px;
+  text-align: center;
+}
+.btn:hover,
+.btn-group button:hover {
+  background: var(--c2);
 }
 
 /* FOOTER */
-.site-footer {
-  background: var(--bg-header);
+footer {
+  background: var(--c4);
   padding: 1rem 0;
 }
 .site-footer .container {
   max-width: 1000px;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
+  padding: 0 1rem;
 }
 .site-footer a {
-  margin: 0 1rem;
-  color: var(--text-main);
+  margin-right: 1rem;
+  color: var(--c1);
   text-decoration: none;
+  font-weight: 500;
+}
+.site-footer a:hover {
+  color: var(--c2);
 }
